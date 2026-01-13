@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheatreDotCom.pk</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/customCSS/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+  <style>
+    body{
+    background: linear-gradient(to right,#4d091e,#782339,#020024);
+    background-size: 100% 100%;
+    background-repeat: no-repeat; 
+    color: white;
+    /* height: 100vh; */
+}
+    .card {
+      transition: transform 0.2s;
+      border-radius: 10px;
+      cursor: pointer;
+      border:1px solid white;
+      
+      
+    }
+    .card:hover {
+      transform: scale(1.19);
+      color: black;
+    }
+    .btn-zoom {
+      transition: transform 0.5s;
+    }
+    .btn-zoom:hover {
+      transform: scale(1.1);
+    }
+     
+    
+    h5{
+        color: white;
+        font-weight: 600;
+    }
+    .btn-primary:hover{
+        background-color:rgb(67, 12, 12)
+        
+        
+
+
+    }
+    .btn-primary{
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        border: #000006;
+        cursor: pointer;
+        padding: 5px 10px;
+            font-size: 12px;
+            background-color: black    
+    
+        
+}
+.card-title{
+  color: #000006;
+  font-size: 25;
+}
+
+/* NEW CHANGES */
+.card .card-img-overlay{
+  visibility: hidden;
+  opacity: 0;
+  transition: .4s ease all;
+}
+.card:hover .card-img-overlay{
+  visibility:visible;
+  opacity: 1;
+  text-shadow: 2px 2px 5px grey;
+}
+.card:hover img{
+opacity: 0.3;
+}
+
+/* #shows{
+  color: white;
+} */
+.card img{
+ border-radius: 10px;
+}
+.card{
+z-index: 0;}
+.card:hover{
+z-index: 999;}
+
+ .video-container {
+      max-width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio (divide 9 by 16 = 0.5625) */
+      margin: 0 auto; /* Center video container */
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #line-under{
+    text-decoration: underline 2px;
+    text-underline-offset: 20px;
+}
+  </style>
+</head>
+<body>
+  
+  <header id="home">
+    <nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="navbar navbar-expand-lg navbar-dark fixed-top">
+                        <div class="container">
+
+                    <!-- NAV LOGO -->
+                    <div class="myLogo">
+                        <a href="index.html" class="navbar-brand text text-white" style="text-decoration: none;"><p>THEATRE<span class="not-text">DOTCOM</span></p></a>
+                    </div>
+
+                    <!-- NAV TOGGLE -->
+                            <button type="button" class="navbar-toggler border-0 focus-ring-none" data-bs-toggle="collapse" data-bs-target="#nav-menu">
+                                <!-- <span class="navbar-toggler-icon"></span> -->
+                                <label class="hamburger">
+                                    <input type="checkbox">
+                                    <svg viewBox="0 0 32 32">
+                                      <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                                      <path class="line" d="M7 16 27 16"></path>
+                                    </svg>
+                                  </label>
+                            </button>
+                    <!-- NAV ITEMS -->
+                            <div class="collapse navbar-collapse justify-content-end" id="nav-menu">
+                                <ul class="navbar-nav mt-1">
+                                    <li class="nav-item">
+                                        <a href="index.html" class="nav-link hover-under"><img class="mb-2 mx-1" src="images/nav icons/home.png" alt="" width="20">Home</a>
+                                    </li>
+                                    <li class="nav-item dropdown" >
+                                        <a href="" class="nav-link dropdown-toggle hover-under" data-bs-toggle="dropdown" id="line-under"><img class="mb-2 mx-1" src="images/nav icons/shows.png" alt="" width="20">Shows</a>
+                            <!-- NAV DROPDOWN -->
+                                        <ul class="dropdown-menu" style="background-color: black; filter: opacity(.9); ">
+                                          <li><a class="dropdown-item nav-link" href="#hindi-shows">Hindi Theatre</a></li>
+                                          <li><a class="dropdown-item nav-link" href="#english-shows">English Theatre</a></li>
+                                          <li><a class="dropdown-item nav-link" href="#urdu-shows">Urdu Theatre</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="index.html#artist-section" class="nav-link hover-under"><img class="mb-2 mx-1" src="images/nav icons/star.png" alt="" width="20">Artist</a></li>
+                                    <li class="nav-item">
+                                        <a href="index.html#auditorium-section" class="nav-link hover-under"><img class="mb-2 mx-1" src="images/nav icons/auditorium.png" alt="" width="20">Auditorium</a></li>
+                                    <li class="nav-item">
+                                        <a href="registration.html" class="nav-link hover-under"><img class="mb-2   mx-1" src="images/nav icons/registration.png" alt="" width="20">Register</a></li>
+                                    <li class="nav-item">
+                                        <a href="about.html" class="nav-link hover-under"><img class="mb-2   mx-1" src="images/nav icons/about.png" alt="" width="20">About</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section id="shows-page" style="margin-top: 160px;">
+        <div class="container my-5">
+          <h1 class=" fw-bold text-center text-uppercase mt-5 mb-4">THEATRE SHOWS</h1><br>
+          
+            <h3 id="hindi-shows">Hindi Theatre</h5>
+          <div class="row">
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+              <div class="card">
+                <div class="card-content">
+                <img src="img/1h.jpg" class="card-img" alt="Card image" height="200px">
+                <!-- <div class="card-body"> -->
+                  <div class="card-img-overlay align-content-end">
+                  <h5 class="card-title">Chichore</h5>
+                  <p class="card-text">59min</p>
+                  <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- </div> -->
+        
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+              <div class="card">
+                <div class="card-content">
+                <img src="img/2h.jpg" class="card-img-top" alt="Card image" height="200px">
+                <!-- <div class="card-body"> -->
+                  <div class="card-img-overlay align-content-end">
+                    <h5 class="card-title">The Twisted Tales</h5>
+                    <p class="card-text">1hr 2min</p>
+                    <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+              <div class="card">
+                <div class="card-content">
+                <img src="./img/3h.jpg" class="card-img-top" alt="Card image" height="200px">
+                  <!-- <div class="card-body"> -->
+                    <div class="card-img-overlay align-content-end">
+                      <h5 class="card-title">Badmash</h5>
+                      <p class="card-text">2hr 10min</p>
+                      <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+        
+        
+        
+            
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+              <div class="card">
+                  <div class="card-content">
+                <img src="./img/4h.jpg" class="card-img-top" alt="Card image" height="200px">
+                  <!-- <div class="card-body"> -->
+                    <div class="card-img-overlay align-content-end">
+                      <h5 class="card-title">Jeenay Do Yaar </h5>
+                      <p class="card-text">2hr 30min</p>
+                      <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+            
+        
+        
+        
+            
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+              <div class="card">
+                <div class="card-content">
+                <img src="./img/5h.jpeg" class="card-img-top" alt="Card image" height="200px">
+                  <!-- <div class="card-body"> -->
+                    <div class="card-img-overlay align-content-end">
+                      <h5 class="card-title">Laddu</h5>
+                      <p class="card-text">49min</p>
+                      <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+        
+        
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+              <div class="card">
+                <div class="card-content">
+                <img src="img/6h.jpg" class="card-img-top" alt="Card image" height="200px">
+                  <!-- <div class="card-body"> -->
+                    <div class="card-img-overlay align-content-end">
+                      <h5 class="card-title">Raat Baki Hai</h5>
+                      <p class="card-text">1hr 4min</p>
+                      <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+           
+               
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                <div class="card">
+                  <div class="card-content">
+                  <img src="./img/7h.jpg" class="card-img-top" alt="Card image" height="200px">
+                    <!-- <div class="card-body"> -->
+                      <div class="card-img-overlay align-content-end">
+                        <h5 class="card-title">Dhoka</h5>
+                        <p class="card-text">49min</p>
+                        <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        
+                 
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                <div class="card">
+                  <div class="card-content">
+                  <img src="./img/8h.jpeg" class="card-img-top" alt="Card image" height="200px">
+                    <!-- <div class="card-body"> -->
+                      <div class="card-img-overlay align-content-end">
+                        <h5 class="card-title">Dream Life</h5>
+                        <p class="card-text">37min</p>
+                        <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        
+              
+                 
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                <div class="card">
+                  <div class="card-content">
+                  <img src="./img/9h.jpg" class="card-img-top" alt="Card image" height="200px">
+                    <!-- <div class="card-body"> -->
+                      <div class="card-img-overlay align-content-end">
+                        <h5 class="card-title">Qismat</h5>
+                        <p class="card-text">1hr 54min</p>
+                        <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        
+                 
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                <div class="card">
+                  <div class="card-content">
+                  <img src="./img/10h.jpg" class="card-img-top" alt="Card image" height="200px">
+                    <!-- <div class="card-body"> -->
+                      <div class="card-img-overlay align-content-end">
+                        <h5 class="card-title">jeenay kay Liye</h5>
+                        <p class="card-text">49min</p>
+                        <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        
+              
+                 
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                <div class="card">
+                  <div class="card-content">
+                  <img src="./img/11h.jpg" class="card-img-top" alt="Card image" height="200px">
+                    <!-- <div class="card-body"> -->
+                      <div class="card-img-overlay align-content-end">
+                        <h5 class="card-title">Badla</h5>
+                        <p class="card-text">49min</p>
+                        <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        
+              
+                 
+            <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                <div class="card">
+                  <div class="card-content">
+                  <img src="./img/12h.jpeg" class="card-img-top" alt="Card image" height="200px">
+                    <!-- <div class="card-body"> -->
+                      <div class="card-img-overlay align-content-end">
+                        <h5 class="card-title">Rules</h5>
+                        <p class="card-text">49min</p>
+                        <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          
+           
+          </div>
+        </div>
+
+
+
+
+        
+            <div class="container mt-5">
+              
+              
+                <h3 id="english-shows">English Theatre</h3>
+              <div class="row">
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                    <div class="card-content">
+                    <img src="img/1e.jpeg" class="card-img" alt="Card image" height="200px">
+                    <!-- <div class="card-body"> -->
+                      <div class="card-img-overlay align-content-end">
+                      <h5 class="card-title">Musicals Night</h5>
+                      <p class="card-text">59min</p>
+                      <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- </div> -->
+            
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                    <div class="card-content">
+                    <img src="img/2e.jpeg" class="card-img-top" alt="Card image" height="200px">
+                    <!-- <div class="card-body"> -->
+                      <div class="card-img-overlay align-content-end">
+                        <h5 class="card-title">Dream Girls</h5>
+                        <p class="card-text">1hr 2min</p>
+                        <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                    <div class="card-content">
+                    <img src="./img/3e.jpeg" class="card-img-top" alt="Card image" height="200px">
+                      <!-- <div class="card-body"> -->
+                        <div class="card-img-overlay align-content-end">
+                          <h5 class="card-title">Barrie Stevens</h5>
+                          <p class="card-text">1hr 10min</p>
+                          <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            
+            
+            
+                
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                      <div class="card-content">
+                    <img src="./img/e4.jpg" class="card-img-top" alt="Card image" height="200px">
+                      <!-- <div class="card-body"> -->
+                        <div class="card-img-overlay align-content-end">
+                          <h5 class="card-title">The King</h5> </h5>
+                          <p class="card-text">57min</p>
+                          <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                
+            
+            
+            
+                
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                    <div class="card-content">
+                    <img src="./img/5e.jpeg" class="card-img-top" alt="Card image" height="200px">
+                      <!-- <div class="card-body"> -->
+                        <div class="card-img-overlay align-content-end">
+                          <h5 class="card-title">Two Popes</h5>
+                          <p class="card-text">49min</p>
+                          <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            
+            
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                    <div class="card-content">
+                    <img src="img/e6.jpeg" class="card-img-top" alt="Card image" height="200px">
+                      <!-- <div class="card-body"> -->
+                        <div class="card-img-overlay align-content-end">
+                          <h5 class="card-title">Magic Handbagged</h5>
+                          <p class="card-text">1hr</p>
+                          <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+               
+                   
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/e14.webp" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Prince Hamlet</h5>
+                            <p class="card-text">1hr 2min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                     
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/8e.jpeg" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Life Of Pie</h5>
+                            <p class="card-text">40min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  
+                     
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/9e.jpeg" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">The Show</h5>
+                            <p class="card-text">34min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                     
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/10e.jpg" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Singin In The Rain </h5>
+                            <p class="card-text">1hr 4min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  
+                     
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/11ee.jpg" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Calm</h5>
+                            <p class="card-text">49min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  
+                     
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/12e.jpg" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Hamiliton</h5>
+                            <p class="card-text">56min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              
+               
+              </div>
+            </div>
+
+
+            
+            <div class="container my-5">
+              
+              
+                <h3 id="urdu-shows">Urdu Theatre</h3>
+              <div class="row">
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                    <div class="card-content">
+                    <img src="img/ur1.jpeg" class="card-img" alt="Card image" height="200px">
+                    <!-- <div class="card-body"> -->
+                      <div class="card-img-overlay align-content-end">
+                      <h5 class="card-title">Hum Dono</h5>
+                      <p class="card-text">59min</p>
+                      <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- </div> -->
+            
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                    <div class="card-content">
+                    <img src="img/2u.jpeg" class="card-img-top" alt="Card image" height="200px">
+                    <!-- <div class="card-body"> -->
+                      <div class="card-img-overlay align-content-end">
+                        <h5 class="card-title">House Full</h5>
+                        <p class="card-text">1hr 2min</p>
+                        <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                    <div class="card-content">
+                    <img src="./img/convertio.in_3u.png" class="card-img-top" alt="Card image" height="200px">
+                      <!-- <div class="card-body"> -->
+                        <div class="card-img-overlay align-content-end">
+                          <h5 class="card-title">LeftOvers</h5>
+                          <p class="card-text">1hr 10min</p>
+                          <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            
+            
+            
+                
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                      <div class="card-content">
+                    <img src="./img/convertio.in_4u.png" class="card-img-top" alt="Card image" height="200px">
+                      <!-- <div class="card-body"> -->
+                        <div class="card-img-overlay align-content-end">
+                          <h5 class="card-title">Jeenay Do Yaar </h5>
+                          <p class="card-text">57min</p>
+                          <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                
+            
+            
+            
+                
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                    <div class="card-content">
+                    <img src="./img/5u.png" class="card-img-top" alt="Card image" height="200px">
+                      <!-- <div class="card-body"> -->
+                        <div class="card-img-overlay align-content-end">
+                          <h5 class="card-title">Urdu Daan</h5>
+                          <p class="card-text">49min</p>
+                          <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            
+            
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                  <div class="card">
+                    <div class="card-content">
+                    <img src="img/convertio.in_6u.png" class="card-img-top" alt="Card image" height="200px">
+                      <!-- <div class="card-body"> -->
+                        <div class="card-img-overlay align-content-end">
+                          <h5 class="card-title">Sahir Ka Khayal</h5>
+                          <p class="card-text">1hr</p>
+                          <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+               
+                   
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/7u.jpg" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Sabzio Ki Kahani</h5>
+                            <p class="card-text">49min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                     
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/8u.jpg" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Kal or Aaj</h5>
+                            <p class="card-text">59min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  
+                     
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/convertio.in_9u.png" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Yahudi Larki</h5>
+                            <p class="card-text">39min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                     
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/10u.jpg" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Anarkali</h5>
+                            <p class="card-text">23min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  
+                     
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/convertio.in_11uu.png" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Bichhu</h5>
+                            <p class="card-text">49min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  
+                     
+                <div class="col-md-4 col-lg-2 col-sm-4 mt-4 col-6">
+                    <div class="card">
+                      <div class="card-content">
+                      <img src="./img/12u.jpeg" class="card-img-top" alt="Card image" height="200px">
+                        <!-- <div class="card-body"> -->
+                          <div class="card-img-overlay align-content-end">
+                            <h5 class="card-title">Government Nagar</h5>
+                            <p class="card-text">24min</p>
+                            <a href="#" class="btn btn-primary btn-zoom">Watch Now</a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              
+               
+              </div>
+            </div>
+
+</section>
+
+<footer class=" text-white mt-5 pt-5" id="footer">
+
+  <div class="container-fluid text-center text-lg-start">
+
+    <div class="row">
+
+      <div class="col-md-4 mb-3 text-center">
+          <a href="index.html" class="footer-brand text" style="text-decoration: none;"><p>THEATRE<span class="not-text d-block">DOTCOM</span></p></a>
+          
+          <div class="text-center mt-3">
+            <a href="https://www.facebook.com" class="social-icon facebook mx-2 my-2" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+        
+            <a href="https://www.instagram.com" class="social-icon instagram mx-2 my-2" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+        
+            <a href="https://www.google.com" class="social-icon google mx-2 my-2" target="_blank">
+              <i class="fab fa-google"></i>
+            </a>
+            
+            <a href="https://www.twitter.com" class="social-icon twitter mx-2 my-2" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+
+            <a href="#" class="social-icon website mx-2 my-2" target="_blank">
+              <i class="fa fa-globe" aria-hidden="true"></i>
+            </a>
+        
+            
+          </div>
+      </div>
+
+        <div class="col-md-4 col-lg-2 mb-3">
+          <h6 class="text-uppercase mb-md-4">Site Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="shows.html" class="text-white footer-links">Shows</a></li>
+            <li><a href="index.html#auditorium-section" class="text-white footer-links">Auditorium</a></li>
+            <li><a href="index.html#artist-section" class="text-white footer-links">Artist Gallery</a></li>
+            <li><a href="about.html" class="text-white footer-links">About</a></li>
+            <li><a href="registration.html" class="text-white footer-links">Registration</a></li>
+          </ul>
+        </div>
+        
+      <div class="col-md-4 col-lg-2 mb-3">
+        <h6 class="text-uppercase  mb-md-4">Customer Support</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white footer-links">My Order</a></li>
+          <li><a href="#" class="text-white footer-links">Broadway Guide</a></li>
+          <li><a href="about.html#faq" class="text-white footer-links">Frequently Asked Questions</a></li>
+          <li><a href="registration.html" class="text-white footer-links">Contact Us</a></li>
+          <li><a href="#" class="text-white footer-links">Terms of Service</a></li>
+          <li><a href="#" class="text-white footer-links">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4 d-lg-none"></div>
+
+      <div class="col-md-4 col-lg-2 mb-3">
+        <h6 class="text-uppercase  mb-md-4">News & Features</h6>
+        <ul class="list-unstyled">
+          <li><a href="#!" class="text-white footer-links">The Theatre Show</a></li>
+          <li><a href="#!" class="text-white footer-links">Latest News</a></li>
+          <li><a href="#!" class="text-white footer-links">Videos</a></li>
+          <li><a href="#!" class="text-white footer-links">Photos</a></li>        
+      </div>
+
+      <div class="col-md-4 col-lg-2 mb-3">
+        <h6 class="text-uppercase  mb-md-4"> Tickets</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white footer-links">Find Tickets by Date</a></li>
+          <li><a href="#" class="text-white footer-links">Theatre Musicals</a></li>
+          <li><a href="#" class="text-white footer-links">Find Tickets by Category</a></li>
+          <li><a href="#" class="text-white footer-links">Theatre Plays</a></li>
+        </ul>
+      </div>
+         
+    </div>
+  </div>
+
+<hr class="bold-hr">
+
+      <div class="footer-bottom p-1 text-center">
+          <p>&copy; 2024 THEATREDOTCOM | All Rights Reserved.</p>
+        </div>
+
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+</body>
+</html>
